@@ -625,10 +625,10 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-oaf-side-effects@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/oaf-side-effects/-/oaf-side-effects-0.4.0.tgz#76e458958d989fff62392d25e194c8534a2bc2be"
-  integrity sha512-321Cix15x6LtVx00ep2wl8/chOP88Y5snC3vhS3vnFwDA+BjX7UH3TEcW7IN0hzJ/vWIVkozhlgxivdMNiYCZQ==
+oaf-side-effects@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/oaf-side-effects/-/oaf-side-effects-0.5.0.tgz#34b9f9252fa6bbf185b78b61530101b4628536bc"
+  integrity sha512-eCKlinnaHEI0M9c0LNvyYNG4RGmoZnR+J3tHK+WFOysXVYya59Z86d0jBpiT8p888lCcLwUe6MjV3iWQxO2Trg==
 
 object-assign@^4.0.1:
   version "4.1.1"
