@@ -6,6 +6,17 @@
 # Oaf Next.js Router
 An accessible wrapper for [Next.js](https://github.com/zeit/next.js/)'s router.
 
+## Installation
+
+```sh
+# yarn
+yarn add oaf-next.js-router
+
+# npm
+npm install oaf-next.js-router
+```
+
+
 ## Usage
 
 `_app.tsx`:
