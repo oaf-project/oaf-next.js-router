@@ -1,10 +1,17 @@
-import { RouterProps, DefaultQuery } from "next/router";
+import { DefaultQuery, RouterProps } from "next/router";
 import {
   announce,
-  resetFocus,
   elementFromHash,
+  resetFocus,
   Selector,
 } from "oaf-side-effects";
+
+// tslint:disable: no-commented-code
+// tslint:disable: interface-name
+// tslint:disable: no-mixed-interface
+// tslint:disable: object-literal-sort-keys
+// tslint:disable: no-if-statement
+// tslint:disable: no-expression-statement
 
 export interface RouterSettings {
   readonly announcementsDivId: string;
@@ -31,6 +38,16 @@ export const defaultSettings: RouterSettings = {
   renderTimeout: 0,
 };
 
+const resetFocusWithTimeout = (settings: RouterSettings) => {
+  setTimeout(() => {
+    resetFocus(
+      settings.primaryFocusTarget,
+      // TODO: get hash from url param instead
+      elementFromHash(location.hash),
+    );
+  }, settings.renderTimeout);
+};
+
 export const wrapRouter = <Q = DefaultQuery>(
   router: RouterProps<Q>,
   s?: Partial<RouterSettings>,
@@ -40,17 +57,12 @@ export const wrapRouter = <Q = DefaultQuery>(
     ...s,
   };
 
+  // tslint:disable-next-line: no-let
   let previousRoute: string = router.route;
 
   const handleRouteChangeComplete = async (url: string): Promise<void> => {
     if (settings.shouldHandleAction(previousRoute, url)) {
-      setTimeout(() => {
-        resetFocus(
-          settings.primaryFocusTarget,
-          // TODO: get hash from url param instead
-          elementFromHash(location.hash),
-        );
-      }, settings.renderTimeout);
+      resetFocusWithTimeout(settings);
 
       if (settings.announcePageNavigation) {
         const title = await settings.documentTitle(url);
@@ -66,13 +78,7 @@ export const wrapRouter = <Q = DefaultQuery>(
 
   const handleHashChangeComplete = (url: string) => {
     if (settings.shouldHandleAction(previousRoute, url)) {
-      setTimeout(() => {
-        resetFocus(
-          settings.primaryFocusTarget,
-          // TODO: get hash from url param instead
-          elementFromHash(location.hash),
-        );
-      }, settings.renderTimeout);
+      resetFocusWithTimeout(settings);
     }
 
     previousRoute = url;
