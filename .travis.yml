@@ -1,4 +1,7 @@
 language: node_js
+addons:
+  sonarcloud:
+    organization: "oaf-project"
 install:
   - yarn install --frozen-lockfile
 script:
@@ -6,3 +9,4 @@ script:
   - yarn lint
   - yarn type-coverage
   - yarn format-lint
+  - sonar-scanner
