@@ -1,44 +1,13 @@
 import { DefaultQuery, RouterProps } from "next/router";
-import {
-  announce,
-  elementFromHash,
-  resetFocus,
-  Selector,
-} from "oaf-side-effects";
+import { defaultSettings, RouterSettings } from "oaf-routing";
+import { announce, elementFromHash, resetFocus } from "oaf-side-effects";
 
-// tslint:disable: no-commented-code
-// tslint:disable: interface-name
-// tslint:disable: no-mixed-interface
-// tslint:disable: object-literal-sort-keys
 // tslint:disable: no-if-statement
 // tslint:disable: no-expression-statement
 
-export interface RouterSettings {
-  readonly announcementsDivId: string;
-  readonly primaryFocusTarget: Selector;
-  readonly documentTitle: (route: string) => Promise<string>;
-  readonly navigationMessage: (title: string, route: string) => string;
-  readonly shouldHandleAction: (
-    previousRoute: string,
-    nextRoute: string,
-  ) => boolean;
-  readonly announcePageNavigation: boolean;
-  readonly renderTimeout: number;
-}
+export { defaultSettings, RouterSettings } from "oaf-routing";
 
-export const defaultSettings: RouterSettings = {
-  announcementsDivId: "announcements",
-  primaryFocusTarget: "main h1, [role=main] h1",
-  documentTitle: () =>
-    new Promise(resolve => setTimeout(() => resolve(document.title))),
-  // TODO i18n
-  navigationMessage: (title: string): string => `Navigated to ${title}.`,
-  shouldHandleAction: () => true,
-  announcePageNavigation: true,
-  renderTimeout: 0,
-};
-
-const resetFocusWithTimeout = (settings: RouterSettings) => {
+const resetFocusWithTimeout = (settings: RouterSettings<string, void>) => {
   setTimeout(() => {
     resetFocus(
       settings.primaryFocusTarget,
@@ -50,11 +19,11 @@ const resetFocusWithTimeout = (settings: RouterSettings) => {
 
 export const wrapRouter = <Q = DefaultQuery>(
   router: RouterProps<Q>,
-  s?: Partial<RouterSettings>,
+  settingsOverrides?: Partial<RouterSettings<string, void>>,
 ): (() => void) => {
   const settings = {
     ...defaultSettings,
-    ...s,
+    ...settingsOverrides,
   };
 
   // tslint:disable-next-line: no-let
