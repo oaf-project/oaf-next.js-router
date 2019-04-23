@@ -54,5 +54,4 @@ const settings = {
 };
 
 wrapRouter(Router, settings);
-}
 ```
