@@ -62,19 +62,48 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
+				<p><a href="https://travis-ci.org/oaf-project/oaf-next.js-router"><img src="https://travis-ci.org/oaf-project/oaf-next.js-router.svg?branch=master" alt="Build Status"></a>
+					<a href="https://snyk.io/test/github/oaf-project/oaf-next.js-router?targetFile=package.json"><img src="https://snyk.io/test/github/oaf-project/oaf-next.js-router/badge.svg?targetFile=package.json" alt="Known Vulnerabilities"></a>
+					<a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/oaf-project/oaf-next.js-router.svg" alt="Greenkeeper badge"></a>
+				<a href="https://www.npmjs.com/package/oaf-next.js-router"><img src="https://img.shields.io/npm/v/oaf-next.js-router.svg" alt="npm"></a></p>
+				<p><a href="https://david-dm.org/oaf-project/oaf-next.js-router"><img src="https://david-dm.org/oaf-project/oaf-next.js-router/status.svg" alt="dependencies Status"></a>
+					<a href="https://david-dm.org/oaf-project/oaf-next.js-router?type=dev"><img src="https://david-dm.org/oaf-project/oaf-next.js-router/dev-status.svg" alt="devDependencies Status"></a>
+				<a href="https://david-dm.org/oaf-project/oaf-next.js-router?type=peer"><img src="https://david-dm.org/oaf-project/oaf-next.js-router/peer-status.svg" alt="peerDependencies Status"></a></p>
 				<h1 id="oaf-next-js-router">Oaf Next.js Router</h1>
 				<p>An accessible wrapper for <a href="https://github.com/zeit/next.js/">Next.js</a>&#39;s router.</p>
-				<h2 id="usage">Usage</h2>
-				<p><code>_app.tsx</code>:</p>
-				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">"next/app"</span>;
-<span class="hljs-keyword">import</span> { wrapRouter } <span class="hljs-keyword">from</span> <span class="hljs-string">"oaf-next.js-router"</span>;
-<span class="hljs-keyword">import</span> Router <span class="hljs-keyword">from</span> <span class="hljs-string">"next/router"</span>;
+				<h2 id="installation">Installation</h2>
+				<pre><code class="language-sh"><span class="hljs-comment"># yarn</span>
+yarn add oaf-next.js-router
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">class</span> MyApp <span class="hljs-keyword">extends</span> App {
+<span class="hljs-comment"># npm</span>
+npm install oaf-next.js-router</code></pre>
+				<h2 id="basic-usage">Basic Usage</h2>
+				<p><code>_app.tsx</code>:</p>
+				<pre><code class="language-diff">import App from "next/app";
+<span class="hljs-addition">+ import { wrapRouter } from "oaf-next.js-router";</span>
+import Router from "next/router";
+
+export default class MyApp extends App {
   componentDidMount() {
-    <span class="hljs-comment">// We only want to do this on the client, not the server.</span>
-    wrapRouter(Router);
+    ...
+<span class="hljs-addition">+    // We only want to do this on the client, not the server.</span>
+<span class="hljs-addition">+    wrapRouter(Router);</span>
+    ...
   }
+}</code></pre>
+				<h2 id="advanced-usage">Advanced Usage</h2>
+				<pre><code class="language-typescript"><span class="hljs-keyword">const</span> settings = {
+  announcementsDivId: <span class="hljs-string">"announcements"</span>,
+  primaryFocusTarget: <span class="hljs-string">"main h1, [role=main] h1"</span>,
+  documentTitle: <span class="hljs-function">(<span class="hljs-params">location: <span class="hljs-built_in">string</span></span>) =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> resolve(<span class="hljs-built_in">document</span>.title))),
+  <span class="hljs-comment">// BYO localization</span>
+  navigationMessage: (title: <span class="hljs-built_in">string</span>, location: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">string</span> =&gt;</span> <span class="hljs-string">`Navigated to <span class="hljs-subst">${title}</span>.`</span>,
+  shouldHandleAction: <span class="hljs-function">(<span class="hljs-params">previousLocation: <span class="hljs-built_in">string</span>, nextLocation: <span class="hljs-built_in">string</span></span>) =&gt;</span> <span class="hljs-literal">true</span>,
+  announcePageNavigation: <span class="hljs-literal">true</span>,
+  setPageTitle: <span class="hljs-literal">false</span>,
+};
+
+wrapRouter(Router, settings);
 }</code></pre>
 			</div>
 		</div>
