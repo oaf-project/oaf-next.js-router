@@ -19,7 +19,7 @@ Documentation at https://oaf-project.github.io/oaf-next.js-router/
 * Announce navigation to users of screen readers
 * Hash fragment support
 
-In lieu of more details, see [Oaf React Router](https://github.com/oaf-project/oaf-react-router/blob/master/README.md#features) for now. The features are basically the same, with the caveat that Oaf Next.js Router doesn't current support focus and scroll restoration after POP navigation.
+In lieu of more details, see [Oaf React Router](https://github.com/oaf-project/oaf-react-router/blob/master/README.md#features) for now. The features are basically the same, with the caveat that Oaf Next.js Router doesn't currently support focus and scroll restoration after POP navigation.
 
 ## Installation
 
