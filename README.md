@@ -10,6 +10,17 @@
 # Oaf Next.js Router
 An accessible wrapper for [Next.js](https://github.com/zeit/next.js/)'s router.
 
+Documentation at https://oaf-project.github.io/oaf-next.js-router/
+
+## Features
+
+* Reset scroll and focus after page navigation
+* Set the page title after navigation
+* Announce navigation to users of screen readers
+* Hash fragment support
+
+In lieu of more details, see [Oaf React Router](https://github.com/oaf-project/oaf-react-router/blob/master/README.md#features) for now. The features are basically the same, with the caveat that Oaf Next.js Router doesn't current support focus and scroll restoration after POP navigation.
+
 ## Installation
 
 ```sh
@@ -45,6 +56,9 @@ export default class MyApp extends App {
 const settings = {
   announcementsDivId: "announcements",
   primaryFocusTarget: "main h1, [role=main] h1",
+  // This assumes you're setting the document title via some other means (e.g. React Helmet).
+  // If you're not, you should return a unique and descriptive page title for each page
+  // from this function and set `setPageTitle` to true.
   documentTitle: (location: string) => new Promise(resolve => setTimeout(() => resolve(document.title))),
   // BYO localization
   navigationMessage: (title: string, location: string): string => `Navigated to ${title}.`,
