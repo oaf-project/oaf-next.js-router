@@ -1,63 +1,52 @@
 import { DefaultQuery, RouterProps } from "next/router";
-import { defaultSettings, RouterSettings } from "oaf-routing";
-import { announce, elementFromHash, resetFocus } from "oaf-side-effects";
+import {
+  createOafRouter,
+  defaultSettings as oafRoutingDefaultSettings,
+  RouterSettings,
+} from "oaf-routing";
 
-// tslint:disable: no-if-statement
 // tslint:disable: no-expression-statement
 
-export { defaultSettings, RouterSettings } from "oaf-routing";
+export { RouterSettings } from "oaf-routing";
 
-const resetFocusWithTimeout = (settings: RouterSettings<string, void>) => {
-  setTimeout(() => {
-    resetFocus(
-      settings.primaryFocusTarget,
-      // TODO: get hash from url param instead
-      elementFromHash(location.hash),
-    );
-  }, settings.renderTimeout);
+export const defaultSettings: RouterSettings<string> = {
+  ...oafRoutingDefaultSettings,
+  // TODO use `history` to track route IDs?
+  restorePageStateOnPop: false
 };
 
 export const wrapRouter = <Q = DefaultQuery>(
   router: RouterProps<Q>,
-  settingsOverrides?: Partial<RouterSettings<string, void>>,
+  settingsOverrides?: Partial<RouterSettings<string>>,
 ): (() => void) => {
   const settings = {
     ...defaultSettings,
     ...settingsOverrides,
   };
 
+  const oafRouter = createOafRouter(
+    settings,
+    // TODO get hash from url param instead
+    () => location.hash,
+    // TODO use `history` to track route IDs?
+    () => "initial",
+  );
+
+  oafRouter.handleFirstPageLoad(router.route);
+
   // tslint:disable-next-line: no-let
   let previousRoute: string = router.route;
 
-  const handleRouteChangeComplete = async (url: string): Promise<void> => {
-    if (settings.shouldHandleAction(previousRoute, url)) {
-      resetFocusWithTimeout(settings);
-
-      if (settings.announcePageNavigation) {
-        const title = await settings.documentTitle(url);
-        announce(
-          settings.navigationMessage(title, url),
-          settings.announcementsDivId,
-        );
-      }
-    }
-
+  const handleLocationChanged = (url: string) => {
+    oafRouter.handleLocationChanged(previousRoute, url);
     previousRoute = url;
   };
 
-  const handleHashChangeComplete = (url: string) => {
-    if (settings.shouldHandleAction(previousRoute, url)) {
-      resetFocusWithTimeout(settings);
-    }
-
-    previousRoute = url;
-  };
-
-  router.events.on("routeChangeComplete", handleRouteChangeComplete);
-  router.events.on("hashChangeComplete", handleHashChangeComplete);
+  router.events.on("routeChangeComplete", handleLocationChanged);
+  router.events.on("hashChangeComplete", handleLocationChanged);
 
   return () => {
-    router.events.off("routeChangeComplete", handleRouteChangeComplete);
-    router.events.off("hashChangeComplete", handleHashChangeComplete);
+    router.events.off("routeChangeComplete", handleLocationChanged);
+    router.events.off("hashChangeComplete", handleLocationChanged);
   };
 };
