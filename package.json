@@ -8,12 +8,10 @@
     "url": "https://github.com/oaf-project/oaf-next.js-router.git"
   },
   "dependencies": {
-    "oaf-routing": "^0.4.1"
+    "oaf-routing": "^0.5.0"
   },
   "peerDependencies": {
-    "next": "^8.1.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "next": "^8.1.0"
   },
   "devDependencies": {
     "@types/next": "^8.0.4",
@@ -34,7 +32,7 @@
     "format": "prettier --write '{src,test}/**/*.{ts,tsx}'",
     "format-lint": "prettylint '{src,test}/**/*.{ts,tsx}'",
     "documentation": "typedoc --excludeNotExported --excludePrivate --out docs src && cp docs_config.yml ./docs/_config.yml",
-    "publish": "yarn build && yarn lint && yarn type-coverage && yarn format-lint && yarn publish"
+    "release": "yarn build && yarn lint && yarn type-coverage && yarn format-lint && yarn publish && yarn documentation"
   },
   "prettier": {
     "trailingComma": "all"

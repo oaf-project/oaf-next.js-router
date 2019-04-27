@@ -11,8 +11,8 @@ export { RouterSettings } from "oaf-routing";
 
 export const defaultSettings: RouterSettings<string> = {
   ...oafRoutingDefaultSettings,
-  // TODO use `history` to track route IDs?
-  restorePageStateOnPop: false
+  // TODO use `history` to track route IDs and action (POP vs PUSH vs REPLACE)?
+  restorePageStateOnPop: false,
 };
 
 export const wrapRouter = <Q = DefaultQuery>(
@@ -28,8 +28,6 @@ export const wrapRouter = <Q = DefaultQuery>(
     settings,
     // TODO get hash from url param instead
     () => location.hash,
-    // TODO use `history` to track route IDs?
-    () => "initial",
   );
 
   oafRouter.handleFirstPageLoad(router.route);
@@ -38,7 +36,8 @@ export const wrapRouter = <Q = DefaultQuery>(
   let previousRoute: string = router.route;
 
   const handleLocationChanged = (url: string) => {
-    oafRouter.handleLocationChanged(previousRoute, url);
+    // TODO use `history` to track route IDs and action (POP vs PUSH vs REPLACE)?
+    oafRouter.handleLocationChanged(previousRoute, "initial", url, undefined);
     previousRoute = url;
   };
 
