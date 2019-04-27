@@ -5,7 +5,9 @@ import {
   RouterSettings,
 } from "oaf-routing";
 
+// tslint:disable-next-line: no-commented-code
 // tslint:disable: no-expression-statement
+// tslint:disable: object-literal-sort-keys
 
 export { RouterSettings } from "oaf-routing";
 
@@ -13,6 +15,8 @@ export const defaultSettings: RouterSettings<string> = {
   ...oafRoutingDefaultSettings,
   // TODO use `history` to track route IDs and action (POP vs PUSH vs REPLACE)?
   restorePageStateOnPop: false,
+  // We're not restoring page state ourselves so leave this enabled.
+  disableAutoScrollRestoration: false,
 };
 
 export const wrapRouter = <Q = DefaultQuery>(
@@ -37,7 +41,14 @@ export const wrapRouter = <Q = DefaultQuery>(
 
   const handleLocationChanged = (url: string) => {
     // TODO use `history` to track route IDs and action (POP vs PUSH vs REPLACE)?
-    oafRouter.handleLocationChanged(previousRoute, "initial", url, undefined);
+    const currentLocationKey = undefined;
+    const action = undefined;
+    oafRouter.handleLocationChanged(
+      previousRoute,
+      url,
+      currentLocationKey,
+      action,
+    );
     previousRoute = url;
   };
 
