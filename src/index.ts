@@ -8,6 +8,7 @@ import {
 // tslint:disable-next-line: no-commented-code
 // tslint:disable: no-expression-statement
 // tslint:disable: object-literal-sort-keys
+// tslint:disable: no-object-mutation
 
 export { RouterSettings } from "oaf-routing";
 
@@ -30,8 +31,13 @@ export const wrapRouter = <Q = DefaultQuery>(
 
   const oafRouter = createOafRouter(
     settings,
-    // TODO get hash from url param instead
-    () => location.hash,
+    url => {
+      // TODO https://caniuse.com/#feat=url
+      // return new URL(url).hash;
+      const a = document.createElement("a");
+      a.href = url;
+      return a.hash;
+    },
   );
 
   oafRouter.handleFirstPageLoad(router.route);
