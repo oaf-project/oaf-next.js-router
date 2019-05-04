@@ -14,14 +14,14 @@
     "next": "^8.1.0"
   },
   "devDependencies": {
-    "@types/next": "^8.0.4",
+    "@types/next": "^8.0.5",
     "prettier": "^1.17.0",
     "prettylint": "^1.0.0",
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-immutable": "^5.5.2",
     "tslint-sonarts": "^1.9.0",
-    "type-coverage": "^2.0.0",
+    "type-coverage": "^2.0.1",
     "typedoc": "^0.14.2",
     "typescript": "^3.4.5"
   },
