@@ -8,7 +8,7 @@
     "url": "https://github.com/oaf-project/oaf-next.js-router.git"
   },
   "dependencies": {
-    "oaf-routing": "^1.0.2"
+    "oaf-routing": "^1.0.3"
   },
   "peerDependencies": {
     "next": "^8.1.0"

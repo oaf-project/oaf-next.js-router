@@ -605,10 +605,10 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-oaf-routing@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/oaf-routing/-/oaf-routing-1.0.2.tgz#e0cff48f00daf1e1c2843c06896930d4319a4d16"
-  integrity sha512-1uqJiXHhrXjDa7wLMTve0nJOY8uTGY/JYymhTnNQzIU0DVg7jxsIpxn5T+kUJTHpdygMg7/8oTaxu4PEW9eT/g==
+oaf-routing@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/oaf-routing/-/oaf-routing-1.0.3.tgz#2dfa82debe6cdfca8b87b29133d6d5478aa6e84b"
+  integrity sha512-6Ai2LCUvcmJiJy5+m8WuClVLtCxk8IAVcAauMtgJ1uvC2DfKm33L8ATEeicMbGk2xcR7jZmGOrB8LU0IAgIy2Q==
   dependencies:
     oaf-side-effects "^1.0.2"
     unique-selector "^0.4.1"
