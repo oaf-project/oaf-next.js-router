@@ -29,16 +29,13 @@ export const wrapRouter = <Q = DefaultQuery>(
     ...settingsOverrides,
   };
 
-  const oafRouter = createOafRouter(
-    settings,
-    url => {
-      // TODO https://caniuse.com/#feat=url
-      // return new URL(url).hash;
-      const a = document.createElement("a");
-      a.href = url;
-      return a.hash;
-    },
-  );
+  const oafRouter = createOafRouter(settings, url => {
+    // TODO https://caniuse.com/#feat=url
+    // return new URL(url).hash;
+    const a = document.createElement("a");
+    a.href = url;
+    return a.hash;
+  });
 
   oafRouter.handleFirstPageLoad(router.route);
 
