@@ -65,6 +65,9 @@ const settings = {
   shouldHandleAction: (previousLocation: string, nextLocation: string) => true,
   announcePageNavigation: true,
   setPageTitle: false,
+  // Set this to true for smooth scrolling.
+  // For browser compatibility you might want iamdustan's smoothscroll polyfill https://github.com/iamdustan/smoothscroll
+  smoothScroll: false,
 };
 
 wrapRouter(Router, settings);
