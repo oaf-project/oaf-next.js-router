@@ -8,7 +8,7 @@
     "url": "https://github.com/oaf-project/oaf-next.js-router.git"
   },
   "dependencies": {
-    "oaf-routing": "^1.1.0"
+    "oaf-routing": "^3.0.0"
   },
   "peerDependencies": {
     "next": "^8.1.0"
@@ -17,13 +17,13 @@
     "@types/next": "^8.0.5",
     "prettier": "^1.17.1",
     "prettylint": "^1.0.0",
-    "tslint": "^5.16.0",
+    "tslint": "^5.17.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-immutable": "^5.5.2",
     "tslint-sonarts": "^1.9.0",
-    "type-coverage": "^2.0.1",
+    "type-coverage": "^2.0.2",
     "typedoc": "^0.14.2",
-    "typescript": "^3.4.5"
+    "typescript": "^3.5.1"
   },
   "scripts": {
     "build": "tsc",
