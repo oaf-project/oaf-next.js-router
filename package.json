@@ -17,13 +17,13 @@
     "@types/next": "^8.0.5",
     "prettier": "^1.18.2",
     "prettylint": "^1.0.0",
-    "tslint": "^5.17.0",
+    "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-immutable": "^6.0.0",
     "tslint-sonarts": "^1.9.0",
-    "type-coverage": "^2.0.2",
+    "type-coverage": "^2.0.4",
     "typedoc": "^0.14.2",
-    "typescript": "^3.5.1"
+    "typescript": "^3.5.2"
   },
   "scripts": {
     "build": "tsc",
