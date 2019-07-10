@@ -11,19 +11,19 @@
     "oaf-routing": "^3.0.0"
   },
   "peerDependencies": {
-    "next": "^8.1.0"
+    "next": "^9.0.0"
   },
   "devDependencies": {
-    "@types/next": "^8.0.5",
+    "next": "^9.0.0",
     "prettier": "^1.18.2",
     "prettylint": "^1.0.0",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
-    "tslint-immutable": "^6.0.0",
+    "tslint-immutable": "^6.0.1",
     "tslint-sonarts": "^1.9.0",
     "type-coverage": "^2.0.4",
     "typedoc": "^0.14.2",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.3"
   },
   "scripts": {
     "build": "tsc",

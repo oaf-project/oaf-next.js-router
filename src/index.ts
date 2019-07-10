@@ -1,4 +1,4 @@
-import { DefaultQuery, RouterProps } from "next/router";
+import { SingletonRouter } from "next/router";
 import {
   createOafRouter,
   defaultSettings as oafRoutingDefaultSettings,
@@ -20,8 +20,8 @@ export const defaultSettings: RouterSettings<string> = {
   disableAutoScrollRestoration: false,
 };
 
-export const wrapRouter = <Q = DefaultQuery>(
-  router: RouterProps<Q>,
+export const wrapRouter = (
+  router: SingletonRouter,
   settingsOverrides?: Partial<RouterSettings<string>>,
 ): (() => void) => {
   const settings = {
