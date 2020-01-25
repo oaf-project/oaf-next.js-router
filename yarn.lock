@@ -3952,18 +3952,18 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-oaf-routing@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/oaf-routing/-/oaf-routing-3.0.1.tgz#86b1170d6310583730fddcd3d0e34a4517bf61d4"
-  integrity sha512-1BiJObNkwQHTUZ5vBm0Yb1aB2oTe+SK2Oqr/p1zNCrm0c/oAHaZSRvYZhSYjvVa2q2B+O14v3e3LLIhHn0t+QQ==
+oaf-routing@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/oaf-routing/-/oaf-routing-4.0.0.tgz#ea4f08ab761eeebf6d1abd7739f1fb35dcb4d7e3"
+  integrity sha512-jL9gkKjb54ZTutuzFaksQQAZ55VEitO1d+UMr4DQU1sNMauZi4T8yXV98hO3mhO/FzeUIlqVQonIwDgwdOu39g==
   dependencies:
-    oaf-side-effects "^2.0.0"
+    oaf-side-effects "^3.0.0"
     unique-selector "^0.4.1"
 
-oaf-side-effects@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/oaf-side-effects/-/oaf-side-effects-2.0.1.tgz#d458a39b5ab2b4e2d6bc338902e3549d4160725d"
-  integrity sha512-xmWk1NynmS4ywNUtHUOYlai9s4vWPZpQ66NPOHM8x6e6g0ziD7Damgzza/OA/paMYQSsBaynNnvcoFun8zyRyA==
+oaf-side-effects@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/oaf-side-effects/-/oaf-side-effects-3.0.0.tgz#ddeca2fa646370f6cec1f2134b5a936be4551ef7"
+  integrity sha512-tYUsCziM8aYBaIEZa+mm0P8jNmmmjfDKnM6tJnDK/SVSj0RODlAUYWYs3/oIiLAs9WAa+QmVx1bI/H+UB2zGbg==
 
 object-assign@4.1.1, object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"
