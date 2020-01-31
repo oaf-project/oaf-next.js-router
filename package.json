@@ -14,10 +14,10 @@
     "next": "^9.0.0"
   },
   "devDependencies": {
-    "next": "^9.1.5",
+    "next": "^9.2.1",
     "prettier": "^1.19.1",
     "prettylint": "^1.0.0",
-    "tslint": "^5.20.1",
+    "tslint": "^6.0.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-immutable": "^6.0.1",
     "tslint-sonarts": "^1.9.0",
