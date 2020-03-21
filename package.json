@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "next": "^9.2.2",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.0",
     "prettylint": "^1.0.0",
     "tslint": "^6.0.0",
     "tslint-config-prettier": "^1.18.0",
