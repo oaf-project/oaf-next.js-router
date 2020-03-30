@@ -14,7 +14,7 @@
     "next": "^9.0.0"
   },
   "devDependencies": {
-    "next": "^9.2.2",
+    "next": "^9.3.3",
     "prettier": "^1.19.1",
     "prettylint": "^1.0.0",
     "tslint": "^6.0.0",
