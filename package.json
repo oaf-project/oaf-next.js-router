@@ -14,16 +14,16 @@
     "next": "^9.0.0"
   },
   "devDependencies": {
-    "next": "^9.2.2",
-    "prettier": "^1.19.1",
+    "next": "^9.4.4",
+    "prettier": "^2.0.5",
     "prettylint": "^1.0.0",
-    "tslint": "^6.0.0",
+    "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0",
     "tslint-immutable": "^6.0.1",
     "tslint-sonarts": "^1.9.0",
-    "type-coverage": "^2.4.0",
-    "typedoc": "^0.16.9",
-    "typescript": "^3.8.2"
+    "type-coverage": "^2.9.0",
+    "typedoc": "^0.17.8",
+    "typescript": "^3.9.7"
   },
   "scripts": {
     "build": "tsc",
