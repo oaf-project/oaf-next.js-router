@@ -1,14 +1,15 @@
+/* eslint-disable functional/functional-parameters */
+/* eslint-disable functional/no-let */
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable functional/no-expression-statement */
+/* eslint-disable functional/no-return-void */
+
 import { SingletonRouter } from "next/router";
 import {
   createOafRouter,
   defaultSettings as oafRoutingDefaultSettings,
   RouterSettings,
 } from "oaf-routing";
-
-// tslint:disable-next-line: no-commented-code
-// tslint:disable: no-expression-statement
-// tslint:disable: object-literal-sort-keys
-// tslint:disable: no-object-mutation
 
 export { RouterSettings } from "oaf-routing";
 
@@ -29,20 +30,21 @@ export const wrapRouter = (
     ...settingsOverrides,
   };
 
-  const oafRouter = createOafRouter(settings, url => {
+  const oafRouter = createOafRouter(settings, (url) => {
     // TODO https://caniuse.com/#feat=url
     // return new URL(url).hash;
+    // eslint-disable-next-line no-restricted-globals
     const a = document.createElement("a");
+    // eslint-disable-next-line functional/no-expression-statement, functional/immutable-data
     a.href = url;
     return a.hash;
   });
 
   oafRouter.handleFirstPageLoad(router.route);
 
-  // tslint:disable-next-line: no-let
   let previousRoute: string = router.route;
 
-  const handleLocationChanged = (url: string) => {
+  const handleLocationChanged = (url: string): void => {
     // TODO use `history` to track route IDs and action (POP vs PUSH vs REPLACE)?
     const currentLocationKey = undefined;
     const action = undefined;
@@ -58,7 +60,7 @@ export const wrapRouter = (
   router.events.on("routeChangeComplete", handleLocationChanged);
   router.events.on("hashChangeComplete", handleLocationChanged);
 
-  return () => {
+  return (): void => {
     router.events.off("routeChangeComplete", handleLocationChanged);
     router.events.off("hashChangeComplete", handleLocationChanged);
   };
