@@ -5891,14 +5891,6 @@ traverse@0.6.6:
   resolved "https://registry.yarnpkg.com/traverse/-/traverse-0.6.6.tgz#cbdf560fd7b9af632502fed40f918c157ea97137"
   integrity sha1-y99WD9e5r2MlAv7UD5GMFX6pcTc=
 
-ts-lib-utils@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/ts-lib-utils/-/ts-lib-utils-2.9.0.tgz#f1b7c25bcd246d13fd24a65632611a865e46f1e3"
-  integrity sha512-N+hiB60c/Za3sXTCptnaTl6eS4U7PEHC6obf8jBsC4Paae0nKwtreh68CXp7JNLOKil4t/k1dIwL4cUATmMJMQ==
-  dependencies:
-    glob "7"
-    tslib "1 || 2"
-
 ts-pnp@^1.1.6:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
@@ -5933,23 +5925,23 @@ type-check@^0.4.0, type-check@~0.4.0:
   dependencies:
     prelude-ls "^1.2.1"
 
-type-coverage-core@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/type-coverage-core/-/type-coverage-core-2.9.0.tgz#1f13e4060c1b782495c5558c1bc60bb9c9c73afc"
-  integrity sha512-99iPqoHnbat+8FKkQaHed5CztFTwNFa+33Pr975tokoHQRcBEvuFWTT8ZjdF3BbrWblYU4Or5YtZi/T7tk4VCA==
+type-coverage-core@^2.16.3:
+  version "2.16.3"
+  resolved "https://registry.yarnpkg.com/type-coverage-core/-/type-coverage-core-2.16.3.tgz#8467c49f40a216b75a31cbff66c6df5e43689db1"
+  integrity sha512-gOkogkvCALgINVPGY4hLW5qCCj1B8Jiih/Y1geNcMwAhS/Sbt+b0N5r1D6tOhmAPC9rTpxhL8cqJA2v+Ngonxw==
   dependencies:
+    glob "7"
     minimatch "3"
-    ts-lib-utils "^2.9.0"
     tslib "1 || 2"
     tsutils "3"
 
-type-coverage@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/type-coverage/-/type-coverage-2.9.0.tgz#2b75da037f99c27922a71b219018e8007cab4e8d"
-  integrity sha512-yOi8+bXmzMEgdvHEhuT4zQ6J9kymQLK0BQTT0v7ZL2RHaP0mRIn7hy8+bpQeenAftjEH2aHzxSsxMcZF72VqRg==
+type-coverage@^2.16.3:
+  version "2.16.3"
+  resolved "https://registry.yarnpkg.com/type-coverage/-/type-coverage-2.16.3.tgz#410ea60ad6982dc4078a36e7373456f0935ecca6"
+  integrity sha512-sRT+bWDWqh4FD0tQBvGAedNIteRYC+qLL51nfCEcyAwfIrTR0hm50YoP48Ri2zVFyJwmAQF92Smu4ody2k36sw==
   dependencies:
     minimist "1"
-    type-coverage-core "^2.9.0"
+    type-coverage-core "^2.16.3"
 
 type-fest@^0.7.1:
   version "0.7.1"
